@@ -73,7 +73,7 @@ function handleClick() {
 
 function handleSubmit(e) {
   e.preventDefault();
-  title = document.querySelector('.searchField').value;
+  title = document.querySelector('#search-bar').value;
   searchResults.innerHTML = '';
   fetchBooks(title, startIndex);
   startIndex += 10;
