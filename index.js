@@ -48,8 +48,8 @@ function renderResults(results) {
       if(item.volumeInfo.imageLinks) {
         console.log(item);
         return `<div class='book'>
-                  <h3>${descriptionShortener(item.volumeInfo.description) || 'No description'}<h3>
-                  <p>${item}</p>
+                  <h3>${item.volumeInfo.title}<h3>
+                  <div class='description'>${descriptionShortener(item.volumeInfo.description) || 'No description'}</div>
                   <img src='${item.volumeInfo.imageLinks.thumbnail}'>
                 </div>`;
       }

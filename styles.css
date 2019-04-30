@@ -1,0 +1,35 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.searchResults {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+
+}
+
+.book {
+  border: 2px solid black;
+  padding: 5px;
+  width: 90%;
+  margin: 5px;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 17px;
+}
