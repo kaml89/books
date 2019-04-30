@@ -46,7 +46,12 @@ function renderResults(results) {
   if ('items' in results) {
     searchResults.innerHTML += results.items.map((item) => {
       if(item.volumeInfo.imageLinks) {
-        return `<div><img src='${item.volumeInfo.imageLinks.thumbnail}'></div>`;
+        console.log(item);
+        return `<div class='book'>
+                  <h3>${descriptionShortener(item.volumeInfo.description) || 'No description'}<h3>
+                  <p>${item}</p>
+                  <img src='${item.volumeInfo.imageLinks.thumbnail}'>
+                </div>`;
       }
       else {
         return `<div>Placeholder</div>`;
@@ -76,3 +81,9 @@ function handleSubmit(e) {
 
 // button.addEventListener('click', handleClick);
 form.addEventListener('submit', handleSubmit);
+
+function descriptionShortener(desc) {
+  if (desc) {
+    return desc.split(' ').slice(0, 19).join(' ').concat('...');
+  }
+}
