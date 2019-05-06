@@ -19,23 +19,6 @@ input#search-bar {
   font-size: 1rem;
   border: 1px solid #D0CFCE;
   outline: none;
-  /* &:focus{
-    border: 1px solid #008ABF;
-    transition: 0.35s ease;
-    color: #008ABF;
-    &::-webkit-input-placeholder{
-      transition: opacity 0.45s ease; 
-  	  opacity: 0;
-     }
-    &::-moz-placeholder {
-      transition: opacity 0.45s ease; 
-  	  opacity: 0;
-     }
-    &:-ms-placeholder {
-     transition: opacity 0.45s ease; 
-  	 opacity: 0;
-     }    
-   } */
  }
 
 .search-icon{
@@ -46,10 +29,6 @@ input#search-bar {
   top: -62px;
   right: -45px;
 }
-
-
-
-
 
 .main {
   display: flex;
@@ -71,7 +50,7 @@ input#search-bar {
   border: 2px solid black;
   padding: 5px;
   width: 90%;
-  margin:
+  margin: 5px;
 }
 
 h3 {

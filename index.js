@@ -40,9 +40,6 @@ function fetchBooks(title, startIndex) {
 
 
 function renderResults(results) {
-  // results.forEach((item) => {
-  //   searchResults.appendChild(`<div><img src='${item.volumeInfo.imageLinks.thumbnail}'></div>`);
-  // });
   if ('items' in results) {
     searchResults.innerHTML += results.items.map((item) => {
       if(item.volumeInfo.imageLinks) {
@@ -50,11 +47,15 @@ function renderResults(results) {
         return `<div class='book'>
                   <h3>${item.volumeInfo.title}<h3>
                   <div class='description'>${descriptionShortener(item.volumeInfo.description) || 'No description'}</div>
-                  <img src='${item.volumeInfo.imageLinks.thumbnail}'>
+                  <img src='${item.volumeInfo.imageLinks.thumbnail || 'coverplaceholder.jpg'}'>
                 </div>`;
       }
       else {
-        return `<div>Placeholder</div>`;
+        return `<div class='book'>
+                  <h3>${item.volumeInfo.title}<h3>
+                  <div class='description'>${descriptionShortener(item.volumeInfo.description) || 'No description'}</div>
+                  <img src='coverplaceholder.jpg'>
+                </div>`;
       }
       
     }).join('');
@@ -79,7 +80,6 @@ function handleSubmit(e) {
   startIndex += 10;
 }
 
-// button.addEventListener('click', handleClick);
 form.addEventListener('submit', handleSubmit);
 
 function descriptionShortener(desc) {
