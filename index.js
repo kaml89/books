@@ -1,6 +1,6 @@
 const form = document.querySelector('form');
 let title = '';
-const searchResults = document.querySelector('.searchResults');
+const searchResults = document.querySelector('.search-results');
 
 function throttle (callback, limit) {
   var wait = false;                  // Initially, we're not waiting
@@ -28,6 +28,9 @@ function checkScroll() {
 
 function fetchBooks(title, startIndex) {
   const url = `https://www.googleapis.com/books/v1/volumes?q=${title}&startIndex=${startIndex}`;
+  let loader = `<div class="spinner"></div>`;
+  document.querySelector('footer').innerHTML = loader;
+
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -41,18 +44,19 @@ function fetchBooks(title, startIndex) {
 
 function renderResults(results) {
   if ('items' in results) {
+    document.querySelector('footer').innerHTML = '';
     searchResults.innerHTML += results.items.map((item) => {
       if(item.volumeInfo.imageLinks) {
         console.log(item);
         return `<div class='book'>
-                  <h3>${item.volumeInfo.title}<h3>
+                  <h3>${item.volumeInfo.title}</h3>
                   <div class='description'>${descriptionShortener(item.volumeInfo.description) || 'No description'}</div>
-                  <img src='${item.volumeInfo.imageLinks.thumbnail || 'coverplaceholder.jpg'}'>
+                  <img src='${item.volumeInfo.imageLinks.thumbnail}'>
                 </div>`;
       }
       else {
         return `<div class='book'>
-                  <h3>${item.volumeInfo.title}<h3>
+                  <h3>${item.volumeInfo.title}</h3>
                   <div class='description'>${descriptionShortener(item.volumeInfo.description) || 'No description'}</div>
                   <img src='coverplaceholder.jpg'>
                 </div>`;

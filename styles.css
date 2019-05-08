@@ -1,6 +1,8 @@
 * {
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
+
 body {
   padding-top: 75px;
 }
@@ -21,34 +23,38 @@ input#search-bar {
   outline: none;
  }
 
-.search-icon{
+.search-icon {
   position: relative;
   float: right;
   width: 75px;
   height: 75px;
-  top: -62px;
-  right: -45px;
+  top: -60px;
+  right: -15px;
 }
 
 .main {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
   justify-content: center;
-  align-items: center;
-  
+  align-items: center; 
 }
 
-.searchResults {
+footer {
+  height: 50px;
+}
+
+.search-results {
   display: flex;
   flex-direction: column;
-  width: 90vw;
-
+  justify-content: center;
+  align-items: center;
+  width: 90%;
 }
 
 .book {
   border: 2px solid black;
-  padding: 5px;
+  padding: 10px;
   width: 90%;
   margin: 5px;
 }
@@ -60,4 +66,22 @@ h3 {
 
 .description {
   font-size: 17px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  border-top-color: steelblue;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
 }
